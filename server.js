@@ -3,6 +3,7 @@
 const http = require('http');
 const port = process.env.PORT || 8080;
 const fs = require('fs');
+const path = require('path');
 
 const server = http.createServer();
 
@@ -15,13 +16,15 @@ server.listen(port);
 // A partir de aqui van todas las funciones 
 
 function onRequest(req, res){
-  fs.readFile('public/index.html', function(err, file){
-    if(err){
-      //console.log("Hubo error");
-      return res.end(err.message);
-    }
-    res.end(file);
-  });
+
+  let index = path.join(__dirname,'public', 'index.html');
+  res.setHeader('Content-type','text/html');
+  let rs = fs.createReadStream(index);
+  rs.pipe(res);
+
+  rs.on('error', function(err){
+    res.end(err.message);
+  })
 }
 
 function onListening() {
