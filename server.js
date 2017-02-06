@@ -3,12 +3,15 @@
 const http = require('http');
 const port = process.env.PORT || 8080;
 
-const server = http.createServer(onRequest);
+const server = http.createServer();
 
-server.listen(port, onListening);
+server.on('request', onRequest);
+server.on('listening', onListening);
+
+server.listen(port);
 
 
-// a partir de aqui van todas las funciones 
+// A partir de aqui van todas las funciones 
 
 function onRequest(req, res){
   res.end('Hola io.js\n');
