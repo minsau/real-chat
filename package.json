@@ -1,0 +1,19 @@
+{
+  "name": "real-chat",
+  "version": "1.0.0",
+  "description": "A real time chat with video and gifs build with nodejs ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minsau/real-chat.git"
+  },
+  "author": "Saúl Gómez <minsau2@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/minsau/real-chat/issues"
+  },
+  "homepage": "https://github.com/minsau/real-chat#readme"
+}
